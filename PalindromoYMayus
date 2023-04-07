@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+int EsPalindromo(char nombre[20])
+{
+	int longitud = strlen(nombre);
+	int j;
+	int k = longitud-1;
+	while(nombre[j]==nombre[k])
+	{
+		if(j>=k)
+			return 1;
+		j++;
+		k--;
+	}
+}
+
+int main(int argc, char *argv[]){
+	
+	char nombre[20];
+	int longitud = strlen(nombre);
+	int i;
+	int respuesta;
+	
+	printf("Nombre:");
+	scanf("%s", nombre);
+	
+	for(i=0;i<20;i++)
+	{
+		nombre[i] = toupper(nombre[i]);
+	}
+	printf("Tu nombre en mayusculas: %s.\n",nombre);
+	
+	respuesta = EsPalindromo(nombre);
+	
+	if (respuesta == 1)
+		printf("Tu nombre %s SI es palindromo.\n",nombre);
+	else
+		printf("Tu nombre %s NO es palindromo.\n",nombre);
+}
